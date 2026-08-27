@@ -19,16 +19,16 @@ const NAV_LINKS = [
   { href: "#contato", label: "Contato" },
 ];
 
+const WPP_REVENDEDOR = "https://wa.me/5511912252298?text=" + encodeURIComponent("Quero ser revendedor TripSide");
+
 export function Header({
   mobileMenuOpen,
   onToggleMobileMenu,
   onCloseMobileMenu,
-  onAbrirDialog,
 }: {
   mobileMenuOpen: boolean;
   onToggleMobileMenu: () => void;
   onCloseMobileMenu: () => void;
-  onAbrirDialog: () => void;
 }) {
   return (
     <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 80 }}>
@@ -137,7 +137,7 @@ export function Header({
             ))}
           </div>
           <div className="hidden md:block">
-            <Button variant="roxo" size="sm" onClick={onAbrirDialog}>
+            <Button as="a" href={WPP_REVENDEDOR} target="_blank" rel="noopener noreferrer" variant="roxo" size="sm">
               Seja Revendedor
             </Button>
           </div>
@@ -172,13 +172,14 @@ export function Header({
             </a>
           ))}
           <Button
+            as="a"
+            href={WPP_REVENDEDOR}
+            target="_blank"
+            rel="noopener noreferrer"
             variant="roxo"
             size="md"
             block
-            onClick={() => {
-              onCloseMobileMenu();
-              onAbrirDialog();
-            }}
+            onClick={onCloseMobileMenu}
           >
             Seja Revendedor
           </Button>
