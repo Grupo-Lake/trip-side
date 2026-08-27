@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { Tag } from "@/components/ui/Tag";
 import { Button } from "@/components/ui/Button";
 
-export function Hero({ onAbrirDialog }: { onAbrirDialog: () => void }) {
+const WPP_REVENDEDOR = "https://wa.me/5511912252298?text=" + encodeURIComponent("Quero ser revendedor TripSide");
+const WPP_ONDE_COMPRAR = "https://wa.me/5511912252298?text=" + encodeURIComponent("Quero saber onde comprar TripSide");
+
+export function Hero() {
   return (
     <section
       id="topo"
@@ -35,20 +37,34 @@ export function Hero({ onAbrirDialog }: { onAbrirDialog: () => void }) {
           gap: "var(--esp-5)",
         }}
       >
-        <Tag tom="ouro">Programa de Revendedores</Tag>
-        <h1 style={{ fontSize: "clamp(36px,6vw,88px)", maxWidth: "16ch", color: "var(--ts-off-white)" }}>
-          Bem-vindo à indústria: domine o lado urbano.
-        </h1>
+        <div>
+          <h1 style={{ fontSize: "clamp(36px,6vw,88px)", color: "var(--ts-off-white)" }}>TRIPSIDE</h1>
+          <p
+            style={{
+              font: "var(--type-label)",
+              letterSpacing: "var(--track-label)",
+              textTransform: "uppercase",
+              color: "var(--ts-roxo-400)",
+              margin: "var(--esp-1) 0 0",
+            }}
+          >
+            autêntico até o osso
+          </p>
+        </div>
+
+        <h2 style={{ fontSize: "clamp(20px,2.6vw,30px)", maxWidth: "24ch", color: "var(--ts-off-white)" }}>
+          VENDA EXCLUSIVA NO ATACADO PARA LOJISTAS.
+        </h2>
         <p style={{ font: "var(--type-corpo)", color: "var(--text-corpo)", maxWidth: "56ch", fontSize: 18 }}>
-          Seja um Revendedor Autorizado da Trip Side. Exclusividade de território e a Coleção Inverno 2k26 direto de
-          fábrica, sem intermediário.
+          Quer comprar TripSide para uso próprio? Encontre onde comprar.
         </p>
+
         <div style={{ display: "flex", gap: "var(--esp-4)", flexWrap: "wrap", marginTop: "var(--esp-3)" }}>
-          <Button variant="roxo" size="lg" onClick={onAbrirDialog}>
-            Cadastre-se como Revendedor
+          <Button as="a" href={WPP_REVENDEDOR} target="_blank" rel="noopener noreferrer" variant="roxo" size="lg">
+            Quero ser revendedor
           </Button>
-          <Button as="a" href="#colecao" variant="contorno" size="lg">
-            Ver Coleção
+          <Button as="a" href={WPP_ONDE_COMPRAR} target="_blank" rel="noopener noreferrer" variant="contorno" size="lg">
+            Onde comprar
           </Button>
         </div>
       </div>

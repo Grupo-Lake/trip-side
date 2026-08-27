@@ -25,7 +25,6 @@ export function Footer() {
           <a href="#topo" style={{ borderBottom: "none", fontSize: 14 }}>Início</a>
           <a href="#colecao" style={{ borderBottom: "none", fontSize: 14 }}>Coleção Inverno</a>
           <a href="#revendedores" style={{ borderBottom: "none", fontSize: 14 }}>Revendedores</a>
-          <a href="/area-cliente-direto" style={{ borderBottom: "none", fontSize: 14 }}>Área do Cliente Direto</a>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--esp-3)" }}>
           <span style={{ font: "var(--type-label)", letterSpacing: "var(--track-tag)", color: "var(--text-suave)" }}>Institucional</span>

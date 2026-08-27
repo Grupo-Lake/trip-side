@@ -6,15 +6,11 @@ import { Hero } from "@/components/landing/Hero";
 import { Collection } from "@/components/landing/Collection";
 import { Advantages } from "@/components/landing/Advantages";
 import { Testimonials } from "@/components/landing/Testimonials";
-import { FindStore } from "@/components/landing/FindStore";
-import { Faq } from "@/components/landing/Faq";
 import { Institutional } from "@/components/landing/Institutional";
 import { Footer } from "@/components/landing/Footer";
-import { SignupDialog } from "@/components/landing/SignupDialog";
 
 export function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dialogAberto, setDialogAberto] = useState(false);
 
   return (
     <div style={{ background: "var(--ts-preto)", minHeight: "100vh" }}>
@@ -38,22 +34,17 @@ export function LandingPage() {
         mobileMenuOpen={mobileMenuOpen}
         onToggleMobileMenu={() => setMobileMenuOpen((v) => !v)}
         onCloseMobileMenu={() => setMobileMenuOpen(false)}
-        onAbrirDialog={() => setDialogAberto(true)}
       />
 
       <main id="conteudo" style={{ paddingTop: 106 }}>
-        <Hero onAbrirDialog={() => setDialogAberto(true)} />
+        <Hero />
         <Collection />
-        <Advantages onAbrirDialog={() => setDialogAberto(true)} />
+        <Advantages />
         <Testimonials />
-        <FindStore />
-        <Faq />
         <Institutional />
       </main>
 
       <Footer />
-
-      <SignupDialog aberto={dialogAberto} onFechar={() => setDialogAberto(false)} />
     </div>
   );
 }

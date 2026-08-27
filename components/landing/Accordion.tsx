@@ -40,7 +40,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
               </span>
             </button>
             {aberto && (
-              <p style={{ color: "var(--text-corpo)", padding: "0 0 var(--esp-5)", margin: 0, maxWidth: "64ch" }}>{item.texto}</p>
+              <p style={{ color: "var(--text-corpo)", padding: "0 0 var(--esp-5)", margin: 0, maxWidth: "64ch", whiteSpace: "pre-line" }}>{item.texto}</p>
             )}
           </div>
         );

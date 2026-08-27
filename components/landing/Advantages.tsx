@@ -7,7 +7,9 @@ const VANTAGENS = [
   { numero: "03", titulo: "Suporte de Marketing", texto: "Arte de drop e still de produto pra tua loja divulgar sem gastar com estúdio." },
 ];
 
-export function Advantages({ onAbrirDialog }: { onAbrirDialog: () => void }) {
+const WPP_REVENDEDOR = "https://wa.me/5511912252298?text=" + encodeURIComponent("Quero ser revendedor TripSide");
+
+export function Advantages() {
   return (
     <section
       id="revendedores"
@@ -26,7 +28,7 @@ export function Advantages({ onAbrirDialog }: { onAbrirDialog: () => void }) {
           ))}
         </div>
         <div style={{ marginTop: "var(--esp-12)" }}>
-          <Button variant="branco" size="lg" onClick={onAbrirDialog}>
+          <Button as="a" href={WPP_REVENDEDOR} target="_blank" rel="noopener noreferrer" variant="branco" size="lg">
             Cadastre-se como Revendedor
           </Button>
         </div>
