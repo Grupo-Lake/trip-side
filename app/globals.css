@@ -228,5 +228,5 @@ img { display: block; max-width: 100%; height: auto; }
     gap: 8px !important;
     padding-bottom: 4px;
   }
-  .ts-inst-nav button { flex: 0 0 auto !important; white-space: nowrap; }
+  .ts-inst-nav button { flex: 0 0 auto !important; width: auto !important; white-space: nowrap; }
 }
