@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useInstitutional } from "@/components/landing/InstitutionalContext";
 
 export function Footer() {
+  const { items, selectItem } = useInstitutional();
+
   return (
     <footer
       id="contato"
@@ -13,7 +18,13 @@ export function Footer() {
       <div style={{ maxWidth: "var(--largura-conteudo)", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: "var(--esp-10)" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--esp-4)" }}>
           <span style={{ display: "flex", alignItems: "center", gap: "var(--esp-3)" }}>
-            <Image src="/assets/logo-mascote-urso.jpg" alt="" width={36} height={36} style={{ width: 36, height: 36, objectFit: "cover" }} />
+            <Image
+              src="/assets/logos/tripside-logo-4.svg"
+              alt="Monograma Trip Side"
+              width={36}
+              height={36}
+              style={{ width: 36, height: 36, objectFit: "contain", filter: "invert(1)" }}
+            />
             <span style={{ fontFamily: "var(--font-tag)", fontSize: 22, color: "var(--ts-off-white)" }}>Trip Side</span>
           </span>
           <p style={{ color: "var(--text-suave)", maxWidth: "36ch", fontSize: 14 }}>
@@ -24,14 +35,27 @@ export function Footer() {
           <span style={{ font: "var(--type-label)", letterSpacing: "var(--track-tag)", color: "var(--text-suave)" }}>Navegação</span>
           <a href="#topo" style={{ borderBottom: "none", fontSize: 14 }}>Início</a>
           <a href="#colecao" style={{ borderBottom: "none", fontSize: 14 }}>Coleção Inverno</a>
-          <a href="#revendedores" style={{ borderBottom: "none", fontSize: 14 }}>Revendedores</a>
+          <a href="#institucional" style={{ borderBottom: "none", fontSize: 14 }}>Institucional</a>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--esp-3)" }}>
           <span style={{ font: "var(--type-label)", letterSpacing: "var(--track-tag)", color: "var(--text-suave)" }}>Institucional</span>
-          <a href="#sobre" style={{ borderBottom: "none", fontSize: 14 }}>Sobre a Trip Side</a>
-          <a href="#trabalhe-conosco" style={{ borderBottom: "none", fontSize: 14 }}>Trabalhe Conosco</a>
-          <a href="#trocas" style={{ borderBottom: "none", fontSize: 14 }}>Política de Trocas</a>
-          <a href="#termos" style={{ borderBottom: "none", fontSize: 14 }}>Termos de Uso</a>
+          {items.map((item, i) => (
+            <button
+              key={item.titulo}
+              onClick={() => selectItem(i)}
+              style={{
+                all: "unset",
+                boxSizing: "border-box",
+                borderBottom: "none",
+                fontSize: 14,
+                color: "var(--ts-off-white)",
+                cursor: "pointer",
+                textAlign: "left",
+              }}
+            >
+              {item.titulo}
+            </button>
+          ))}
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--esp-3)" }}>
           <span style={{ font: "var(--type-label)", letterSpacing: "var(--track-tag)", color: "var(--text-suave)" }}>Atendimento</span>
@@ -40,10 +64,19 @@ export function Footer() {
           <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" style={{ borderBottom: "none", fontSize: 14 }}>TikTok</a>
         </div>
       </div>
+      <div style={{ maxWidth: "var(--largura-conteudo)", margin: "56px auto 0", textAlign: "center" }}>
+        <Image
+          src="/assets/logos/tripside-logo-3.svg"
+          alt="Autêntico até o osso — Trip Side"
+          width={900}
+          height={720}
+          style={{ width: "min(90%,900px)", height: "auto", margin: "0 auto", display: "block", filter: "invert(1)", opacity: 0.9 }}
+        />
+      </div>
       <div
         style={{
           maxWidth: "var(--largura-conteudo)",
-          margin: "var(--esp-10) auto 0",
+          margin: "var(--esp-6) auto 0",
           paddingTop: "var(--esp-6)",
           borderTop: "1px solid var(--stroke-sutil)",
           display: "flex",

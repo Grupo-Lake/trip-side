@@ -2,6 +2,8 @@ import Image from "next/image";
 import { TagHeading } from "@/components/ui/TagHeading";
 import { Badge } from "@/components/ui/Badge";
 
+const WPP_ONDE_COMPRAR = "https://wa.me/5511912252298?text=" + encodeURIComponent("Quero saber onde comprar TripSide");
+
 const PRODUTOS = [
   {
     imagem: "/assets/produto-roxo-frontal.jpg",
@@ -40,23 +42,61 @@ export function Collection() {
         <h2 style={{ fontSize: 36 }}>Última coleção</h2>
       </div>
 
-      <div style={{ display: "flex", gap: "var(--esp-6)", overflowX: "auto", scrollSnapType: "x mandatory", paddingBottom: "var(--esp-4)" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))", gap: 2, background: "var(--stroke-sutil)" }}>
         {PRODUTOS.map((produto) => (
-          <div key={produto.nome} style={{ flex: "0 0 260px", scrollSnapAlign: "start", display: "flex", flexDirection: "column", gap: "var(--esp-3)" }}>
-            <div style={{ position: "relative", overflow: "hidden", background: "var(--ts-cinza-900)", aspectRatio: "4/5" }}>
-              <Image src={produto.imagem} alt={produto.nome} fill sizes="260px" style={{ objectFit: "cover", filter: "saturate(.92)" }} />
-              {produto.selo && (
-                <div style={{ position: "absolute", top: 10, left: 10 }}>
-                  <Badge tom={produto.selo.tom}>{produto.selo.texto}</Badge>
-                </div>
-              )}
+          <div key={produto.nome} style={{ position: "relative", overflow: "hidden", background: "var(--ts-cinza-900)", aspectRatio: "4/5", display: "flex", flexDirection: "column" }}>
+            <Image
+              src={produto.imagem}
+              alt={produto.nome}
+              fill
+              sizes="(min-width: 900px) 25vw, (min-width: 500px) 33vw, 50vw"
+              style={{ objectFit: "cover", filter: "saturate(.92)" }}
+            />
+            {produto.selo && (
+              <div style={{ position: "absolute", top: 12, left: 12, zIndex: 1 }}>
+                <Badge tom={produto.selo.tom}>{produto.selo.texto}</Badge>
+              </div>
+            )}
+            <div
+              style={{
+                position: "relative",
+                zIndex: 1,
+                marginTop: "auto",
+                padding: 14,
+                background: "linear-gradient(to top,rgba(10,10,10,.88),rgba(10,10,10,0))",
+              }}
+            >
+              <span style={{ display: "block", font: "var(--type-label)", letterSpacing: "var(--track-tag)", color: "var(--ts-off-white)", opacity: 0.7 }}>
+                {produto.modelagem}
+              </span>
+              <h3 style={{ fontSize: 14, margin: "2px 0 0", color: "var(--ts-off-white)" }}>{produto.nome}</h3>
             </div>
-            <span style={{ font: "var(--type-label)", letterSpacing: "var(--track-tag)", color: "var(--text-suave)" }}>
-              {produto.modelagem}
-            </span>
-            <h3 style={{ fontSize: 14, margin: 0, color: "var(--text-titulo)" }}>{produto.nome}</h3>
           </div>
         ))}
+        <a
+          href={WPP_ONDE_COMPRAR}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            position: "relative",
+            aspectRatio: "4/5",
+            background: "var(--ts-roxo-900)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 10,
+            textDecoration: "none",
+            borderBottom: "none",
+          }}
+        >
+          <TagHeading as="span" tamanho={32} rotacao={-2} style={{ margin: 0 }}>
+            Ver tudo
+          </TagHeading>
+          <span style={{ font: "var(--type-label)", letterSpacing: "var(--track-label)", color: "var(--ts-roxo-400)" }}>
+            Coleção completa →
+          </span>
+        </a>
       </div>
 
       <div
@@ -115,6 +155,13 @@ export function Collection() {
             style={{ objectFit: "cover", filter: "saturate(.92)" }}
           />
           <div style={{ position: "absolute", inset: 0, background: "var(--protecao-baixo)" }} />
+          <Image
+            src="/assets/logos/tripside-logo-2.svg"
+            alt=""
+            width={96}
+            height={77}
+            style={{ position: "absolute", right: 20, bottom: 16, width: 96, height: "auto", filter: "invert(1)", opacity: 0.9 }}
+          />
           <span style={{ position: "absolute", left: "var(--esp-5)", bottom: "var(--esp-5)", font: "var(--type-label)", letterSpacing: "var(--track-tag)", color: "var(--ts-off-white)" }}>
             Handstyle bordado · Drop 07
           </span>
