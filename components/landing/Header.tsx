@@ -14,7 +14,6 @@ const TICKER_ITENS = [
 const NAV_LINKS = [
   { href: "#topo", label: "Início" },
   { href: "#colecao", label: "Coleção Inverno" },
-  { href: "#revendedores", label: "Revendedores" },
   { href: "#institucional", label: "Institucional" },
   { href: "#contato", label: "Contato" },
 ];

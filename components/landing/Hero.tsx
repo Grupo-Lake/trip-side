@@ -10,10 +10,10 @@ export function Hero() {
       id="topo"
       style={{
         position: "relative",
-        minHeight: "clamp(520px,90vh,760px)",
+        minHeight: "calc(100vh - 106px)",
         display: "flex",
-        alignItems: "flex-end",
-        overflow: "hidden",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
       <Image
@@ -21,45 +21,68 @@ export function Hero() {
         alt="Lojista modelo de costas nos trilhos de ferro, moletom roxo Trip Side com estampa de urso"
         fill
         priority
-        style={{ objectFit: "cover", filter: "saturate(.92)" }}
+        sizes="100vw"
+        style={{ objectFit: "cover", filter: "saturate(.85)" }}
       />
-      <div style={{ position: "absolute", inset: 0, background: "var(--protecao-baixo)" }} />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to bottom,rgba(10,10,10,.55) 0%,rgba(10,10,10,.15) 30%,rgba(10,10,10,.15) 60%,rgba(10,10,10,.92) 100%)",
+        }}
+      />
+
+      <div style={{ position: "relative", textAlign: "center", padding: "64px 20px 0" }}>
+        <h1
+          style={{
+            fontSize: "clamp(40px,8vw,110px)",
+            lineHeight: 0.86,
+            letterSpacing: "-.04em",
+            color: "var(--ts-off-white)",
+          }}
+        >
+          TRIPSIDE
+        </h1>
+        <Image
+          src="/assets/logos/tripside-logo-2.svg"
+          alt="Handstyle Trip Side"
+          width={260}
+          height={208}
+          style={{ width: "clamp(140px,22vw,260px)", height: "auto", margin: "12px auto 0", display: "block", filter: "invert(1)" }}
+        />
+        <p
+          style={{
+            font: "var(--type-label)",
+            letterSpacing: "var(--track-tag)",
+            textTransform: "uppercase",
+            color: "var(--ts-off-white)",
+            margin: "8px 0 0",
+            textShadow: "0 2px 10px rgba(10,10,10,.85)",
+          }}
+        >
+          autêntico até o osso
+        </p>
+      </div>
+
       <div
         style={{
           position: "relative",
           maxWidth: "var(--largura-conteudo)",
           width: "100%",
           margin: "0 auto",
-          padding: "0 clamp(20px,5vw,40px) clamp(48px,10vw,var(--esp-24))",
+          padding: "0 clamp(20px,5vw,40px) clamp(40px,7vw,72px)",
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
+          alignItems: "center",
           gap: "var(--esp-5)",
+          textAlign: "center",
         }}
       >
-        <div>
-          <h1 style={{ fontSize: "clamp(36px,6vw,88px)", color: "var(--ts-off-white)" }}>TRIPSIDE</h1>
-          <p
-            style={{
-              font: "var(--type-label)",
-              letterSpacing: "var(--track-label)",
-              textTransform: "uppercase",
-              color: "var(--ts-roxo-400)",
-              margin: "var(--esp-1) 0 0",
-            }}
-          >
-            autêntico até o osso
-          </p>
-        </div>
-
-        <h2 style={{ fontSize: "clamp(20px,2.6vw,30px)", maxWidth: "24ch", color: "var(--ts-off-white)" }}>
-          VENDA EXCLUSIVA NO ATACADO PARA LOJISTAS.
+        <h2 style={{ fontSize: "clamp(18px,2.2vw,26px)", lineHeight: 1.15, maxWidth: "30ch", color: "var(--ts-off-white)" }}>
+          Venda exclusiva no atacado para lojistas.
         </h2>
-        <p style={{ font: "var(--type-corpo)", color: "var(--text-corpo)", maxWidth: "56ch", fontSize: 18 }}>
-          Quer comprar TripSide para uso próprio? Encontre onde comprar.
-        </p>
-
-        <div style={{ display: "flex", gap: "var(--esp-4)", flexWrap: "wrap", marginTop: "var(--esp-3)" }}>
+        <div style={{ display: "flex", gap: "var(--esp-4)", flexWrap: "wrap", justifyContent: "center" }}>
           <Button as="a" href={WPP_REVENDEDOR} target="_blank" rel="noopener noreferrer" variant="roxo" size="lg">
             Quero ser revendedor
           </Button>

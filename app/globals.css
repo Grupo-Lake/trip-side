@@ -218,3 +218,15 @@ img { display: block; max-width: 100%; height: auto; }
   .area-cliente-direto-grid { grid-template-columns: 1fr; }
   .area-cliente-direto-grid aside { position: static !important; }
 }
+
+@media (max-width: 760px) {
+  .ts-inst-grid { grid-template-columns: 1fr !important; }
+  .ts-inst-nav {
+    position: static !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding-bottom: 4px;
+  }
+  .ts-inst-nav button { flex: 0 0 auto !important; width: auto !important; white-space: nowrap; }
+}
